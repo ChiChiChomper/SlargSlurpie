@@ -1,0 +1,88 @@
+/* Victorian-style design with elegant fonts, soft colors, and decorative borders */
+@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:wght@500&display=swap');
+
+body {
+    background-color: #f5f0e1;
+    color: #4b2b1c;
+    font-family: 'Playfair Display', serif;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    overflow: hidden;
+}
+
+.container {
+    width: 80%;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fff8e6;
+    border: 5px solid #d1a78a;
+    border-radius: 15px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+}
+
+header h1 {
+    font-family: 'Great Vibes', cursive;
+    font-size: 3em;
+    margin-bottom: 20px;
+    color: #6a3b2d;
+    border-bottom: 3px solid #d1a78a;
+    padding-bottom: 10px;
+}
+
+.content p {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.2em;
+    line-height: 1.8;
+    margin: 20px 0;
+    text-align: justify;
+}
+
+button {
+    font-family: 'Playfair Display', serif;
+    background-color: #6a3b2d;
+    color: #fff;
+    border: 2px solid #d1a78a;
+    border-radius: 8px;
+    padding: 10px 20px;
+    font-size: 1em;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #4b2b1c;
+}
+
+footer {
+    font-size: 1em;
+    margin-top: 30px;
+    padding-top: 10px;
+    border-top: 2px solid #d1a78a;
+    color: #6a3b2d;
+}
+
+footer p {
+    font-family: 'Playfair Display', serif;
+}
+
+/* Splot styles */
+.splot {
+    position: absolute;
+    background-color: white;
+    border-radius: 50%;
+    opacity: 0.8;
+    animation: fly-splot 3s ease-out forwards;
+}
+
+/* Animation for the splots */
+@keyframes fly-splot {
+    from {
+        transform: translateY(100vh) scale(0.5);
+        opacity: 0.5;
+    }
+    to {
+        transform: translateY(-100vh) scale(1.5);
+        opacity: 0;
+    }
+}

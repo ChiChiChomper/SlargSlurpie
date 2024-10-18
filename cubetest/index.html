@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Advanced 3D Modeling and Rigging with interactive controls including shape transformation, rotation, scaling, and material editing.">
+    <title>Advanced 3D Modeling and Rigging</title>
+    <link rel="stylesheet" href="/cubetest/style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/exporters/OBJExporter.js"></script>
+</head>
+<body>
+    <nav role="navigation">
+        <div class="nav-item"><a href="/">Home</a></div>
+        <div class="nav-item"><a href="/3d-modeling.html">3D Modeling</a></div>
+    </nav>
+    
+    <main role="main">
+        <section id="control-panel" aria-labelledby="control-panel-heading">
+            <h2 id="control-panel-heading">Control Panel</h2>
+            <label for="shape-select">Add Shape:</label>
+            <select id="shape-select">
+                <option value="cube">Cube</option>
+                <option value="sphere">Sphere</option>
+                <option value="cone">Cone</option>
+                <option value="rig">Generate Low-Poly Person</option>
+            </select>
+            <label for="color-picker">Pick Color:</label>
+            <input type="color" id="color-picker" value="#00ff00">
+            <button id="add-shape">Add Shape</button>
+            <button id="duplicate-shape">Duplicate Shape</button>
+            <button id="lock-shape">Lock Shape</button>
+            
+            <div id="transform-panel" aria-live="polite">
+                <h3>Transformations</h3>
+                <label for="scale-x">Scale X:</label>
+                <input type="range" id="scale-x" min="0.1" max="3" step="0.1" value="1">
+                <label for="scale-y">Scale Y:</label>
+                <input type="range" id="scale-y" min="0.1" max="3" step="0.1" value="1">
+                <label for="scale-z">Scale Z:</label>
+                <input type="range" id="scale-z" min="0.1" max="3" step="0.1" value="1">
+                <label for="rotate-x">Rotate X:</label>
+                <input type="range" id="rotate-x" min="0" max="6.28" step="0.01" value="0">
+                <label for="rotate-y">Rotate Y:</label>
+                <input type="range" id="rotate-y" min="0" max="6.28" step="0.01" value="0">
+                <label for="rotate-z">Rotate Z:</label>
+                <input type="range" id="rotate-z" min="0" max="6.28" step="0.01" value="0">
+                <button id="delete-shape">Delete Shape</button>
+            </div>
+
+            <div id="material-panel">
+                <h3>Material Editor</h3>
+                <label for="material-type">Material Type:</label>
+                <select id="material-type">
+                    <option value="basic">Basic</option>
+                    <option value="lambert">Lambert</option>
+                    <option value="phong">Phong</option>
+                </select>
+                <label for="shininess">Shininess:</label>
+                <input type="range" id="shininess" min="0" max="100" step="1" value="50">
+            </div>
+
+            <h3>Animation Controls</h3>
+            <label for="animate-rotation">Animate Rotation:</label>
+            <input type="checkbox" id="animate-rotation">
+            <label for="animate-position">Animate Position:</label>
+            <input type="checkbox" id="animate-position">
+            <label for="animate-scale">Animate Scale:</label>
+            <input type="checkbox" id="animate-scale">
+            <button id="export-scene">Export as .obj</button>
+            <button id="export-slarg">Export as .slarg</button>
+            <button id="import-slarg">Import .slarg</button>
+        </section>
+
+        <aside id="directory-panel" aria-labelledby="directory-panel-heading">
+            <h2 id="directory-panel-heading">Scene Objects</h2>
+            <ul id="object-list"></ul>
+        </aside>
+
+        <div id="canvas-container" role="region" aria-label="3D Canvas"></div>
+    </main>
+
+    <script src="/cubetest/sigma.js"></script>
+</body>
+</html>

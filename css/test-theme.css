@@ -1,0 +1,174 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Roboto', sans-serif;
+  color: #E0E0E0; /* Slightly brighter for better contrast */
+  background-color: #000000;
+  background-image: url('../images/Sigma.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  min-height: 100vh;
+  text-align: center;
+  letter-spacing: 0.05em;
+  overflow-x: hidden;
+  transition: background-color 0.5s ease;
+}
+
+header {
+  background-color: rgba(20, 20, 20, 0.85); /* Slightly more opaque for clarity */
+  padding: 15px 40px; /* Wider padding for a more spacious look */
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  backdrop-filter: blur(12px);
+  transition: all 0.3s ease;
+}
+
+nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  gap: 30px; /* Increased gap for better spacing */
+}
+
+nav li {
+  margin: 0 10px;
+}
+
+nav a {
+  color: #C0C0C0; /* Brighter link color */
+  text-decoration: none;
+  font-weight: 500;
+  padding: 8px 15px;
+  border-radius: 10px; /* Softer button shapes */
+  transition: all 0.4s ease; /* Smoother hover transitions */
+}
+
+nav a:hover {
+  background-color: rgba(255, 255, 255, 0.1); /* Brighter hover effect */
+  color: #FFFFFF;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.3); /* Soft glow effect */
+}
+
+#theme-switcher {
+  background-color: #2d2d2d;
+  color: #f0f0f0;
+  padding: 10px 15px;
+  border-radius: 10px;
+  border: none;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+#theme-switcher:hover {
+  background-color: #454545; /* Enhanced hover contrast */
+}
+
+main {
+  background-color: rgba(30, 30, 40, 0.9); /* Slightly brighter for text legibility */
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.7);
+  border-radius: 25px; /* More rounded for modern feel */
+  padding: 70px 40px;
+  display: inline-block;
+  margin-top: 140px;
+  max-width: 850px;
+  width: 90%;
+  transition: all 0.5s ease; /* Smooth transitions for main content */
+}
+
+h1 {
+  font-size: 3.2em; /* Slightly larger */
+  margin-bottom: 30px;
+  letter-spacing: 0.12em;
+  color: #FFFFFF;
+  text-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+  transition: all 0.3s ease;
+}
+
+p {
+  font-size: 1.5em; /* Slightly larger for readability */
+  line-height: 1.8;
+  color: rgba(220, 220, 220, 0.9);
+  margin-bottom: 30px;
+  transition: all 0.3s ease;
+}
+
+.ad-box {
+  background-color: rgba(140, 40, 70, 0.85);
+  color: #fff;
+  padding: 25px;
+  margin-top: 30px;
+  border-radius: 20px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.5);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  transition: all 0.3s ease;
+}
+
+.ad-box:hover {
+  transform: translateY(-5px); /* Adds slight hover movement */
+}
+
+.ad-box a {
+  color: #FFFFFF;
+  font-weight: bold;
+  text-decoration: underline;
+  position: center;
+}
+
+.ad-box a:hover {
+  text-decoration: none;
+  color: #D0D0D0;
+}
+
+footer {
+  font-size: 0.9em;
+  background-color: rgba(30, 30, 30, 0.9); /* More opaque for clearer footer */
+  padding: 20px 0;
+  text-align: center;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  left: 0;
+  z-index: 1000;
+  box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(12px);
+}
+
+@media (max-width: 768px) {
+  nav ul {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  nav a {
+    padding: 12px;
+  }
+
+  main {
+    padding: 50px 20px;
+    margin-top: 120px;
+  }
+
+  h1 {
+    font-size: 2.8em;
+  }
+
+  p {
+    font-size: 1.3em;
+  }
+
+  .ad-box {
+    padding: 20px;
+  }
+}

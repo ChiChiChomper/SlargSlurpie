@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Advanced 3D Editor</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/TransformControls.js"></script>
+</head>
+<body>
+    <div id="top-toolbar">
+        <button id="add-box">Add Box</button>
+        <button id="add-sphere">Add Sphere</button>
+        <button id="add-cylinder">Add Cylinder</button>
+        <input type="color" id="color-picker" value="#ff0000">
+        <button id="toggle-grid">Toggle Grid</button>
+        <button id="reset-camera">Reset Camera</button>
+        <button id="delete-object">Delete Object</button>
+        <button id="group-objects">Group</button>
+        <button id="ungroup-objects">Ungroup</button>
+        <button id="undo">Undo</button>
+        <button id="redo">Redo</button>
+    </div>
+
+    <div id="object-explorer">
+        <strong>Object Explorer</strong>
+        <ul id="object-list" class="sortable"></ul>
+    </div>
+
+    <div id="inspector">
+        <strong>Inspector</strong>
+        <div>Position: <span id="position"></span></div>
+        <div>Rotation: <span id="rotation"></span></div>
+        <div>Scale: <span id="scale"></span></div>
+        <div>
+            <label>Material:</label>
+            <select id="material-select">
+                <option value="basic">Basic</option>
+                <option value="phong">Phong</option>
+                <option value="lambert">Lambert</option>
+            </select>
+        </div>
+    </div>
+
+    <div id="canvas-container"></div>
+
+    <script src="scripts.js"></script>
+</body>
+</html>

@@ -1,0 +1,172 @@
+/* General Styles */
+body {
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #1f1f1f; /* Darker background to match Roblox Studio */
+    color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    overflow: hidden;
+}
+
+nav {
+    background-color: #2b2b2b;
+    padding: 10px;
+    display: flex;
+    justify-content: flex-start;
+}
+
+nav a {
+    color: #ffffff;
+    margin-right: 20px;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+nav a:hover,
+nav a:focus {
+    color: #0d99ff; /* Blue highlight similar to Roblox Studio */
+    outline: none;
+}
+
+/* Control Panel */
+#control-panel {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    padding: 15px;
+    background-color: #2d2d2d; /* Slightly lighter gray to differentiate panels */
+    border-radius: 4px;
+    width: 300px;
+    z-index: 10;
+    overflow-y: auto;
+    max-height: 80vh;
+    border: 1px solid #3c3c3c; /* Adds a subtle border like Roblox Studio panels */
+}
+
+#control-panel label {
+    display: block;
+    margin-top: 10px;
+    font-size: 14px;
+    color: #ffffff;
+}
+
+#control-panel select,
+#control-panel input[type="color"],
+#control-panel input[type="range"] {
+    width: 100%;
+    margin-top: 5px;
+    background-color: #3b3b3b;
+    color: #ffffff;
+    border: 1px solid #4c4c4c;
+    border-radius: 4px;
+    padding: 5px;
+    font-size: 14px;
+}
+
+#control-panel button {
+    width: 100%;
+    padding: 10px;
+    margin-top: 10px;
+    background-color: #454545;
+    color: #ffffff;
+    border: 1px solid #555555;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+#control-panel button:hover,
+#control-panel button:focus {
+    background-color: #5b5b5b;
+    outline: none;
+}
+
+/* Transform Panel */
+#transform-panel {
+    margin-top: 20px;
+    background-color: #2b2b2b;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #3c3c3c;
+}
+
+#transform-panel h3 {
+    color: #ffffff;
+}
+
+#transform-panel label {
+    color: #b3b3b3;
+    font-size: 12px;
+}
+
+/* Material Panel */
+#material-panel {
+    margin-top: 20px;
+    background-color: #2b2b2b;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #3c3c3c;
+}
+
+#material-panel h3 {
+    color: #ffffff;
+}
+
+#material-panel label {
+    color: #b3b3b3;
+    font-size: 12px;
+}
+
+/* Directory Panel (Explorer) */
+#directory-panel {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    padding: 15px;
+    background-color: #2d2d2d;
+    border-radius: 4px;
+    width: 250px;
+    z-index: 10;
+    max-height: 80vh;
+    overflow-y: auto;
+    border: 1px solid #3c3c3c;
+}
+
+#directory-panel h2 {
+    color: #ffffff;
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+#object-list {
+    list-style: none;
+    padding: 0;
+}
+
+#object-list li {
+    background-color: #3b3b3b;
+    margin-bottom: 5px;
+    padding: 8px;
+    border-radius: 4px;
+    color: #ffffff;
+    cursor: pointer;
+    border: 1px solid #4c4c4c;
+}
+
+#object-list li:hover,
+#object-list li:focus {
+    background-color: #454545;
+    outline: none;
+}
+
+/* Canvas Container (Viewport) */
+#canvas-container {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #1f1f1f; /* Match viewport background */
+}

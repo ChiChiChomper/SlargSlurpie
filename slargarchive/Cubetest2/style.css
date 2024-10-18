@@ -1,0 +1,89 @@
+body, html {
+  margin: 0;
+  overflow: hidden;
+  height: 100%;
+  background-color: #1a1a1a;
+  font-family: 'Arial', sans-serif;
+  user-select: none;
+}
+
+#top-toolbar {
+  background-color: #2c2c2c;
+  color: white;
+  z-index: 10;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 10px;
+  position: absolute;
+  width: 100%;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+#top-toolbar button,
+#top-toolbar input[type=color] {
+  margin-right: 10px;
+  background-color: #4a4a4a;
+  border: none;
+  padding: 8px;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+#top-toolbar button:hover,
+#top-toolbar input[type=color]:hover {
+  background-color: #5a5a5a;
+}
+
+#canvas-container {
+  position: absolute;
+  top: 50px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1;
+  overflow: hidden;
+}
+
+#object-explorer, #inspector {
+  position: absolute;
+  top: 50px;
+  width: 200px;
+  background-color: rgba(44, 44, 44, 0.9);
+  color: white;
+  padding: 10px;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+  overflow-y: auto;
+  max-height: calc(100% - 60px);
+}
+
+#object-explorer {
+  left: 5;
+}
+
+#inspector {
+  right: 5;
+}
+
+ul.sortable {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+ul.sortable li {
+  padding: 8px;
+  cursor: move;
+  background-color: #333;
+  margin-bottom: 2px;
+  transition: background-color 0.3s;
+}
+
+ul.sortable li.selected {
+  background-color: #565656;
+}
+
+ul.sortable li:hover {
+  background-color: #444;
+}

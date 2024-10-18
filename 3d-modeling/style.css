@@ -1,0 +1,41 @@
+body, html {
+  margin: 0;
+  overflow: hidden;
+  height: 100%;
+  background-color: #1a1a1a;
+}
+#canvas-container {
+  width: 100vw;
+  height: 100vh;
+}
+nav {
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 10px;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+nav a {
+  color: white;
+  text-decoration: none;
+  margin: 0 10px;
+}
+nav a:hover {
+  text-decoration: underline;
+}
+#control-panel {
+  position: absolute;
+  top: 50px;
+  left: 10px;
+  background-color: rgba(255, 255, 255, 0.8);
+  padding: 10px;
+  border-radius: 8px;
+  z-index: 1;
+}
+label, select, input {
+  display: block;
+  margin-bottom: 10px;
+}
+#transform-panel {
+  display: none;
+}

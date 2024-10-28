@@ -1,0 +1,32 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Slargnarg Studio</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div id="sidebar">
+        <div id="explorer">
+            <h3>Explorer</h3>
+            <ul id="objectList"></ul>
+        </div>
+        <div id="properties">
+            <h3>Properties</h3>
+            <div id="propertyFields"></div>
+        </div>
+        <div id="assets">
+            <h3>Asset Library</h3>
+            <button data-shape="cube">Cube</button>
+            <button data-shape="sphere">Sphere</button>
+        </div>
+        <button id="saveButton">Save .SLARG</button>
+        <button id="loadButton">Load .SLARG</button>
+    </div>
+    <div id="viewport"></div>
+    <script src="libs/three.min.js"></script>
+    <script type="module" src="main.js"></script>
+</body>
+</html>

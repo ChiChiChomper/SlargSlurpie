@@ -1,5 +1,9 @@
 {
+  "version": "1.0.0",
+  "lockfileVersion": 3,
+  "requires": true,
   "dependencies": {
-    "all": "^0.0.0"
+    "all": "^0.0.0",
+    "three": "^0.154.0"
   }
 }

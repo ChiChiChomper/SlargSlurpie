@@ -1,1 +1,1 @@
-// Placeholder: In a real scenario, download Three.js and place it here.
+import * as THREE from 'three'

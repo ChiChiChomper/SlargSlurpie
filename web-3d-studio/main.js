@@ -1,5 +1,5 @@
 
-import * as THREE from './libs/three.module.js';
+import * as THREE from './libs/three/build/three.module.js';
 import { saveSLARG, loadSLARG } from './slarg.js';
 import { createUI } from './ui.js';
 

@@ -1,6 +1,6 @@
 
 import { saveSLARG, loadSLARG } from './slarg.js';
-import * as THREE from './libs/three.module.js';
+import * as THREE from './libs/three/build/three.module.js';
 
 export function createUI(scene, renderer, camera) {
     document.getElementById('saveButton').addEventListener('click', () => saveSLARG('scene.slarg', scene));

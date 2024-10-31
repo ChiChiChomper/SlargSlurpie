@@ -11,9 +11,8 @@ Welcome to **Slargnarg** — the innovative tool crafted for 3D modeling, gaming
    - [3D Modeling & Rigging](#3d-modeling--rigging)
    - [Games & Interactive Fun](#games--interactive-fun)
    - [Proxy Browsing](#proxy-browsing)
-3. [Installation](#installation)
-4. [Usage](#usage)
-5. [Support](#support)
+3.  [Usage](#usage)
+4. [Support](#support)
 
 ---
 
@@ -48,10 +47,3 @@ For secure browsing, Slargnarg includes a built-in proxy that helps you surf the
 - **Bypass Restrictions**: Access sites that may be restricted in your area, while keeping your online presence anonymous.
 - **Fast and Reliable**: High-speed, reliable connection for seamless browsing.
 
-## Installation
-
-To get started, download and install Slargnarg:
-
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/shantry-sx/Slargnarg.git

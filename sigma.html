@@ -3,62 +3,84 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Slargnarg</title>
+        <title>Slargnarg - Games</title>
         <link rel="icon" href="favicon.ico" type="image/x-icon" />
         <link id="theme-link" rel="stylesheet" href="css/light-theme.css" />
         <link rel="apple-touch-icon" sizes="180x180" href="images/icon.png" />
         <style>
             body {
-                font-family: Arial, sans-serif;
-                color: white;
-                background-color: #000;
+                font-family: 'Poppins', sans-serif;
+                color: #fff;
+                background-color: #121212;
                 margin: 0;
                 padding: 0;
-                overflow-x: hidden;
+                text-align: center;
             }
 
             header {
-                background: #333;
-                padding: 10px;
-                text-align: center;
+                background: #1e1e1e;
+                padding: 15px 0;
+                box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
             }
 
             header nav ul {
                 list-style: none;
                 padding: 0;
                 margin: 0;
+                display: flex;
+                justify-content: center;
+                gap: 20px;
             }
 
             header nav ul li {
                 display: inline;
-                margin: 0 15px;
             }
 
             header nav ul li a {
                 color: #fff;
                 text-decoration: none;
+                font-weight: bold;
+                transition: color 0.3s;
+            }
+
+            header nav ul li a:hover {
+                color: #ff9800;
             }
 
             main {
-                padding: 20px;
-                text-align: center;
+                padding: 40px 20px;
+            }
+
+            h1 {
+                font-size: 2.5em;
+                margin-bottom: 10px;
+            }
+
+            p {
+                font-size: 1.2em;
+                margin-bottom: 30px;
             }
 
             .game-display {
-                width: 300px;
-                height: 200px;
-                margin: 20px auto;
+                width: 320px;
+                height: 220px;
+                margin: 20px;
                 position: relative;
                 display: inline-block;
-                border: 1px solid #ccc;
-                box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+                border-radius: 10px;
                 overflow: hidden;
+                transition: transform 0.3s ease-in-out;
+            }
+
+            .game-display:hover {
+                transform: scale(1.05);
             }
 
             .game-display img {
                 width: 100%;
                 height: auto;
                 display: block;
+                border-radius: 10px;
             }
 
             .game-display a {
@@ -67,32 +89,31 @@
                 left: 0;
                 width: 100%;
                 height: 100%;
-                text-indent: -9999px; /* Hide text but keep the link clickable */
+                text-indent: -9999px;
+                background: rgba(0, 0, 0, 0.3);
+                transition: background 0.3s;
+            }
+
+            .game-display:hover a {
+                background: rgba(0, 0, 0, 0.6);
+            }
+
+            #games {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 15px;
             }
 
             #games img {
-                width: 100px;
-                height: 100px;
-                margin: 10px;
+                width: 120px;
+                height: 120px;
+                border-radius: 10px;
+                transition: transform 0.3s;
             }
 
-            #sigma-info {
-                margin: 20px 0;
-            }
-
-            #sigma-info h2 {
-                font-size: 1.5em;
-            }
-
-            #sigma-info p {
-                font-size: 1.2em;
-            }
-
-            #sigma-info .game-image {
-                width: 100%;
-                max-width: 600px;
-                height: auto;
-                margin-top: 10px;
+            #games img:hover {
+                transform: scale(1.1);
             }
         </style>
     </head>
@@ -104,9 +125,7 @@
                     <li><a href="contacts.html">Contacts</a></li>
                     <li><a href="sigma.html">Games</a></li>
                     <li><a href="social.html">Social Links</a></li>
-                    <li>
-                        <a href="https://Misleading.slargnarg.com">Browser</a>
-                    </li>
+                    <li><a href="https://Misleading.slargnarg.com">Browser</a></li>
                     <li><a href="/3d-modeling/index.html">Cube</a></li>
                     <li><a href="slargarchive/">Archive</a></li>
                 </ul>
@@ -117,129 +136,35 @@
             <h1>Games</h1>
             <p>Explore our collection of exciting games</p>
 
-            <section id="sigma-info">
-                <img
-                    src="images/icon.png"
-                    alt="Sigma Game"
-                    class="game-image"
-                />
-            </section>
-
             <section id="game-links">
                 <h2>Play Our Games</h2>
                 <div class="game-display">
                     <a href="skibidi/sm64/index.html">Play S64</a>
-                    <img src="images/mario.png" alt="Pong Game Thumbnail" />
+                    <img src="images/mario.png" alt="Super Mario 64" />
                 </div>
                 <div class="game-display">
-                    <a href="skibidi/subway-surfers/index.html"
-                        >Play Subway Surf</a
-                    >
-                    <img
-                        src="images/suggway.jpg"
-                        alt="Breakout Game Thumbnail"
-                    />
+                    <a href="skibidi/subway-surfers/index.html">Play Subway Surf</a>
+                    <img src="images/suggway.jpg" alt="Subway Surfers" />
                 </div>
                 <div class="game-display">
-                    <a href="skibidi/synesthesia/index.html"
-                        >Play Space Invaders</a
-                    >
-                    <img
-                        src="images/IAE.png"
-                        alt="Space Invaders Game Thumbnail"
-                    />
+                    <a href="skibidi/synesthesia/index.html">Play Space Invaders</a>
+                    <img src="images/IAE.png" alt="Space Invaders" />
                 </div>
                 <div class="game-display">
-                    <a href="skibidi/RobloxRep/index.html" target="_blank"
-                        >Play Roblox Game</a
-                    >
-                    <img src="images/bones.jpg" alt="Roblox Game Thumbnail" />
+                    <a href="skibidi/RobloxRep/index.html" target="_blank">Play Roblox Game</a>
+                    <img src="images/bones.jpg" alt="Roblox Game" />
                 </div>
             </section>
 
             <section id="games">
                 <h2>More Games</h2>
-                <a href="skibidi/bob-the-robber-2/"
-                    ><img src="images/bob-the-robber-2.png" alt="Bob Robber"
-                /></a>
-                <a href="skibidi/static/"
-                    ><img src="images/nuhuh.png" alt="1v1lol"
-                /></a>
+                <a href="skibidi/bob-the-robber-2/"><img src="images/bob-the-robber-2.png" alt="Bob the Robber 2" /></a>
+                <a href="skibidi/static/"><img src="images/nuhuh.png" alt="1v1lol" /></a>
                 <a href="skibidi/Os/"><img src="images/osu.png" alt="Osu" /></a>
-                <a href="skibidi/vex7/"
-                    ><img src="images/vex7.jpeg" alt="Vex 7"
-                /></a>
-                <a href="skibidi/baldis-basics/"
-                    ><img src="images/splash.png" alt="Baldi's Basics"
-                /></a>
-                <a href="skibidi/Minecraft"
-                    ><img src="images/mc.png" alt="Minecraft"
-                /></a>
-                <a href="skibidi/moto-x3m/"
-                    ><img src="images/moto-x3m.jpg" alt="Moto X3M"
-                /></a>
-                <a href="skibidi/retro-bowl/"
-                    ><img src="images/retro-bowl.jpg" alt="Retro Bowl"
-                /></a>
-                <a href="skibidi/drive-mad/"
-                    ><img src="images/drive-mad.jpg" alt="Drive Mad"
-                /></a>
-                <a href="skibidi/slope/"
-                    ><img src="images/slope.jpg" alt="Slope"
-                /></a>
-                <a href="skibidi/motox3m2/"
-                    ><img src="images/motox3m2.jpg" alt="Moto X3M 2"
-                /></a>
-                <a href="skibidi/stickman-golf/"
-                    ><img src="images/Yum.png" alt="Stickman Golf"
-                /></a>
-                <a href="skibidi/ducklife4/"
-                    ><img src="images/Ducky.jpg" alt="Duck Life 4"
-                /></a>
-                <a href="skibidi/Rocket-Leauge/"
-                    ><img src="images/Rocky.png" alt="Rocket League"
-                /></a>
-                <a href="skibidi/ages-of-conflict/"
-                    ><img src="images/Ages.jpg" alt="Ages of Conflict"
-                /></a>
-                <a href="skibidi/sm64/"
-                    ><img src="images/mario.png" alt="Super Mario 64"
-                /></a>
-                <a href="skibidi/RobloxRep/"
-                    ><img src="images/roclock.png" alt="Roblox Rep"
-                /></a>
-                <a href="skibidi/synesthesia/"
-                    ><img src="images/IAE.png" alt="Synesthesia"
-                /></a>
-                <a href="skibidi/RUSTYSUB/"
-                    ><img src="images/russtyyy.png" alt="Rusty Sub"
-                /></a>
-                <a href="skibidi/shellshock/"
-                    ><img src="images/favicon.png" alt="Shellshock"
-                /></a>
-                <a href="skibidi/subway-surfers/"
-                    ><img src="images/suggway.jpg" alt="Subway Surfers"
-                /></a>
-                <a href="skibidi/riddleschool2/"
-                    ><img src="images/riddleschool2.png" alt="Riddle School 2"
-                /></a>
-                <a href="skibidi/among-us/"
-                    ><img src="images/red.png" alt="Among Us"
-                /></a>
-                <a href="skibidi/BASKETBALL/"
-                    ><img
-                        src="images/basketball-stars.png"
-                        alt="Basketball Stars"
-                /></a>
-                <a href="skibidi/deepest-sword/"
-                    ><img src="images/sworddd.jpg" alt="Deepest Sword"
-                /></a>
-                <a href="skibidi/Run 2/"
-                    ><img src="images/run2.jpg" alt="Run 2"
-                /></a>
-                <a href="skibidi/geodash/"
-                    ><img src="images/geoscratchicon.png" alt="Geometry Dash"
-                /></a>
+                <a href="skibidi/vex7/"><img src="images/vex7.jpeg" alt="Vex 7" /></a>
+                <a href="skibidi/baldis-basics/"><img src="images/splash.png" alt="Baldi's Basics" /></a>
+                <a href="skibidi/Minecraft/"><img src="images/mc.png" alt="Minecraft" /></a>
+                <a href="skibidi/moto-x3m/"><img src="images/moto-x3m.jpg" alt="Moto X3M" /></a>
             </section>
         </main>
     </body>

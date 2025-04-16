@@ -1,98 +1,168 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Slargnarg</title>
-    <link rel="icon" href="favicon.ico" type="image/x-icon" />
-    <link
-      href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
-      rel="stylesheet"
-    />
-  </head>
-  <body class="bg-black text-white font-sans">
-    <header class="bg-gray-900 p-4 shadow-md">
-      <nav class="max-w-6xl mx-auto">
-        <ul class="flex flex-wrap justify-center gap-6 text-sm sm:text-base">
-          <li><a href="index.html" class="hover:text-yellow-400">Home</a></li>
-          <li><a href="contacts.html" class="hover:text-yellow-400">Contacts</a></li>
-          <li><a href="sigma.html" class="hover:text-yellow-400">Games</a></li>
-          <li><a href="social.html" class="hover:text-yellow-400">Social Links</a></li>
-          <li>
-            <a href="https://Misleading.slargnarg.com" class="hover:text-yellow-400">Browser</a>
-          </li>
-          <li><a href="/3d-modeling/index.html" class="hover:text-yellow-400">Cube</a></li>
-          <li><a href="slargarchive/" class="hover:text-yellow-400">Archive</a></li>
-        </ul>
-      </nav>
-    </header>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Slargnarg</title>
+        <link rel="icon" href="favicon.ico" type="image/x-icon" />
+        <link id="theme-link" rel="stylesheet" href="css/light-theme.css" />
+        <link rel="apple-touch-icon" sizes="180x180" href="images/icon.png" />
+    </head>
+    <body>
+        <header>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="contacts.html">Contacts</a></li>
+                    <li><a href="sigma.html">Games</a></li>
+                    <li><a href="social.html">Social Links</a></li>
+                    <li>
+                        <a href="https://Misleading.slargnarg.com">Browser</a>
+                    </li>
+                    <li><a href="/3d-modeling/index.html">Cube</a></li>
+                    <li><a href="slargarchive/">Archive</a></li>
+                </ul>
+            </nav>
+        </header>
 
-    <main class="max-w-6xl mx-auto px-4 py-8 text-center">
-      <h1 class="text-4xl font-bold mb-2">Games</h1>
-      <p class="text-lg text-gray-300 mb-8">Explore our collection of exciting games</p>
+        <main>
+            <h1>Games</h1>
+            <p>Explore our collection of exciting games</p>
 
-      <section id="sigma-info" class="mb-10">
-        <img src="images/icon.png" alt="Sigma Game" class="mx-auto max-w-md" />
-      </section>
+            <section id="sigma-info">
+                <img
+                    src="images/icon.png"
+                    alt="Sigma Game"
+                    class="game-image"
+                />
+            </section>
 
-      <section id="game-links" class="mb-16">
-        <h2 class="text-2xl font-semibold mb-6">Play Our Games</h2>
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          <div class="relative shadow-lg border border-gray-700 rounded-lg overflow-hidden">
-            <a href="skibidi/sm64/index.html" class="absolute inset-0 z-10" aria-label="Play S64"></a>
-            <img src="images/sm64large.jpg" alt="Pong Game Thumbnail" class="w-full" />
-          </div>
-          <div class="relative shadow-lg border border-gray-700 rounded-lg overflow-hidden">
-            <a href="skibidi/subway-surfers/index.html" class="absolute inset-0 z-10" aria-label="Play Subway Surf"></a>
-            <img src="images/Surf2.jpg" alt="Breakout Game Thumbnail" class="w-full" />
-          </div>
-          <div class="relative shadow-lg border border-gray-700 rounded-lg overflow-hidden">
-            <a href="skibidi/moto-x3m-pool-party/" class="absolute inset-0 z-10" aria-label="Moto Pool"></a>
-            <img src="images/moto-pool2.jpg" alt="Moto Pool" class="w-full" />
-          </div>
-          <div class="relative shadow-lg border border-gray-700 rounded-lg overflow-hidden">
-            <a href="skibidi/Minecraft/" target="_blank" class="absolute inset-0 z-10" aria-label="Play Roblox Game"></a>
-            <img src="images/mc2.jpg" alt="Roblox Game Thumbnail" class="w-full" />
-          </div>
-        </div>
-      </section>
+            <section id="game-links">
+                <h2>Play Our Games</h2>
+                <div class="game-display">
+                    <a href="skibidi/sm64/index.html">Play S64</a>
+                    <img src="images/sm64large.jpg" alt="Pong Game Thumbnail" />
+                </div>
+                <div class="game-display">
+                    <a href="skibidi/subway-surfers/index.html"
+                        >Play Subway Surf</a
+                    >
+                    <img
+                        src="images/Surf2.jpg"
+                        alt="Breakout Game Thumbnail"
+                    />
+                </div>
+                <div class="game-display">
+                    <a href="skibidi/moto-x3m-pool-party/"
+                        >Moto-pool</a
+                    >
+                    <img
+                        src="images/moto-pool2.jpg"
+                        alt="Space Invaders Game Thumbnail"
+                    />
+                </div>
+                <div class="game-display">
+                    <a href="skibidi/Minecraft/" target="_blank"
+                        >Play Roblox Game</a
+                    >
+                    <img src="images/mc2.jpg" alt="Roblox Game Thumbnail" />
+                </div>
+            </section>
 
-      <section id="games">
-        <h2 class="text-2xl font-semibold mb-6">More Games</h2>
-        <div class="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 gap-4">
-          <!-- Game Thumbnails -->
-          <a href="skibidi/bob-the-robber-2/"><img src="images/bob-the-robber-2.png" alt="Bob Robber" /></a>
-          <a href="skibidi/static/"><img src="images/nuhuh.png" alt="1v1lol" /></a>
-          <a href="skibidi/Os/"><img src="images/osu.png" alt="Osu" /></a>
-          <a href="skibidi/baldis-basics/"><img src="images/splash.png" alt="Baldi's Basics" /></a>
-          <a href="skibidi/Minecraft/"><img src="images/mc.png" alt="Minecraft" /></a>
-          <a href="skibidi/moto-x3m/"><img src="images/moto-x3m.jpg" alt="Moto X3M" /></a>
-          <a href="skibidi/moto-x3m-spooky-land/"><img src="images/moto-spooky.jpg" alt="Moto Spooky" /></a>
-          <a href="skibidi/moto-x3m-winter/"><img src="images/moto-winter.jpg" alt="Moto Winter" /></a>
-          <a href="skibidi/moto-x3m-pool-party/"><img src="images/moto-pool.jpg" alt="Moto Pool" /></a>
-          <a href="skibidi/vex6/"><img src="images/vex6.jpeg" alt="Vex 6" /></a>
-          <a href="skibidi/drive-mad/"><img src="images/drive-mad.jpg" alt="Drive Mad" /></a>
-          <a href="skibidi/slope-2/"><img src="images/slope.jpg" alt="Slope" /></a>
-          <a href="skibidi/motox3m2/"><img src="images/motox3m2.jpg" alt="Moto X3M 2" /></a>
-          <a href="skibidi/stickman-golf/"><img src="images/Yum.png" alt="Stickman Golf" /></a>
-          <a href="skibidi/ducklife4/"><img src="images/Ducky.jpg" alt="Duck Life 4" /></a>
-          <a href="skibidi/Rocket-Leauge/"><img src="images/Rocky.png" alt="Rocket League" /></a>
-          <a href="skibidi/ages-of-conflict/"><img src="images/Ages.jpg" alt="Ages of Conflict" /></a>
-          <a href="skibidi/sm64/"><img src="images/mario.png" alt="Super Mario 64" /></a>
-          <a href="skibidi/RobloxRep/"><img src="images/roclock.png" alt="Roblox Rep" /></a>
-          <a href="skibidi/synesthesia/"><img src="images/IAE.png" alt="Synesthesia" /></a>
-          <a href="skibidi/RUSTYSUB/"><img src="images/russtyyy.png" alt="Rusty Sub" /></a>
-          <a href="skibidi/shellshock/"><img src="images/favicon.png" alt="Shellshock" /></a>
-          <a href="skibidi/subway-surfers/"><img src="images/suggway.jpg" alt="Subway Surfers" /></a>
-          <a href="skibidi/riddleschool2/"><img src="images/riddleschool2.png" alt="Riddle School 2" /></a>
-          <a href="skibidi/among-us/"><img src="images/red.png" alt="Among Us" /></a>
-          <a href="skibidi/BASKETBALL/"><img src="images/basketball-stars.png" alt="Basketball Stars" /></a>
-          <a href="skibidi/deepest-sword/"><img src="images/sworddd.jpg" alt="Deepest Sword" /></a>
-          <a href="skibidi/run3/"><img src="images/run3.jpg" alt="Run 3" /></a>
-          <a href="skibidi/geodash/"><img src="images/geoscratchicon.png" alt="Geometry Dash" /></a>
-          <a href="skibidi/crazycattle3d/"><img src="images/CrazyCattle3D.png" alt="Crazy Cattle 3D" /></a>
-        </div>
-      </section>
-    </main>
-  </body>
+            <section id="games">
+                <h2>More Games</h2>
+                <a href="skibidi/bob-the-robber-2/"
+                    ><img src="images/bob-the-robber-2.png" alt="Bob Robber"
+                /></a>
+                <a href="skibidi/static/"
+                    ><img src="images/nuhuh.png" alt="1v1lol"
+                /></a>
+                <a href="skibidi/Os/"><img src="images/osu.png" alt="Osu" /></a>
+                
+                <a href="skibidi/baldis-basics/"
+                    ><img src="images/splash.png" alt="Baldi's Basics"
+                /></a>
+                <a href="skibidi/Minecraft/"
+                    ><img src="images/mc.png" alt="Minecraft"
+                /></a>
+                <a href="skibidi/moto-x3m/"
+                    ><img src="images/moto-x3m.jpg" alt="Moto X3M"
+                /></a>
+                <a href="skibidi/moto-x3m-spooky-land/"
+                    ><img src="images/moto-spooky.jpg" alt="Moto X3M"
+                /></a>
+                <a href="skibidi/moto-x3m-winter/"
+                    ><img src="images/moto-winter.jpg" alt="Moto X3M"
+                /></a>
+                <a href="skibidi/moto-x3m-pool-party/"
+                    ><img src="images/moto-pool.jpg" alt="Moto X3M"
+                /></a>
+                <a href="skibidi/vex6/"
+                    ><img src="images/vex6.jpeg" alt="Retro Bowl"
+                /></a>
+                <a href="skibidi/drive-mad/"
+                    ><img src="images/drive-mad.jpg" alt="Drive Mad"
+                /></a>
+                <a href="skibidi/slope-2/"
+                    ><img src="images/slope.jpg" alt="Slope"
+                /></a>
+                <a href="skibidi/motox3m2/"
+                    ><img src="images/motox3m2.jpg" alt="Moto X3M 2"
+                /></a>
+                <a href="skibidi/stickman-golf/"
+                    ><img src="images/Yum.png" alt="Stickman Golf"
+                /></a>
+                <a href="skibidi/ducklife4/"
+                    ><img src="images/Ducky.jpg" alt="Duck Life 4"
+                /></a>
+                <a href="skibidi/Rocket-Leauge/"
+                    ><img src="images/Rocky.png" alt="Rocket League"
+                /></a>
+                <a href="skibidi/ages-of-conflict/"
+                    ><img src="images/Ages.jpg" alt="Ages of Conflict"
+                /></a>
+                <a href="skibidi/sm64/"
+                    ><img src="images/mario.png" alt="Super Mario 64"
+                /></a>
+                <a href="skibidi/RobloxRep/"
+                    ><img src="images/roclock.png" alt="Roblox Rep"
+                /></a>
+                <a href="skibidi/synesthesia/"
+                    ><img src="images/IAE.png" alt="Synesthesia"
+                /></a>
+                <a href="skibidi/RUSTYSUB/"
+                    ><img src="images/russtyyy.png" alt="Rusty Sub"
+                /></a>
+                <a href="skibidi/shellshock/"
+                    ><img src="images/favicon.png" alt="Shellshock"
+                /></a>
+                <a href="skibidi/subway-surfers/"
+                    ><img src="images/suggway.jpg" alt="Subway Surfers"
+                /></a>
+                <a href="skibidi/riddleschool2/"
+                    ><img src="images/riddleschool2.png" alt="Riddle School 2"
+                /></a>
+                <a href="skibidi/among-us/"
+                    ><img src="images/red.png" alt="Among Us"
+                /></a>
+                <a href="skibidi/BASKETBALL/"
+                    ><img
+                        src="images/basketball-stars.png"
+                        alt="Basketball Stars"
+                /></a>
+                <a href="skibidi/deepest-sword/"
+                    ><img src="images/sworddd.jpg" alt="Deepest Sword"
+                /></a>
+                <a href="skibidi/run3/"
+                    ><img src="images/run3.jpg" alt="Run 2"
+                /></a>
+                <a href="skibidi/geodash/"
+                    ><img src="images/geoscratchicon.png" alt="Geometry Dash"
+                /></a>
+                <a href="skibidi/crazycattle3d/"
+                    ><img src="images/CrazyCattle3D.png" alt="Crazy Cattle 3D"
+                /></a>
+            </section>
+        </main>
+    </body>
 </html>

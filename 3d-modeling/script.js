@@ -1,4 +1,4 @@
-// Initialize scene, camera, and renderer
+// THREE.js Scene Initialization
 const scene = new THREE.Scene();
 scene.background = new THREE.Color(0x111111);
 
@@ -26,8 +26,11 @@ const light = new THREE.DirectionalLight(0xffffff, 1);
 light.position.set(1, 1, 2).normalize();
 scene.add(light);
 
+// Add Shape Function
 function addShape(type, color) {
     let geometry;
+    let material = new THREE.MeshBasicMaterial({ color });
+
     switch (type) {
         case 'cube':
             geometry = new THREE.BoxGeometry();
@@ -38,19 +41,24 @@ function addShape(type, color) {
         case 'cone':
             geometry = new THREE.ConeGeometry(0.5, 1, 32);
             break;
-        case 'rig': // added case for rigged person
+        case 'rig':
             createRiggedPerson();
             return;
     }
-    const material = new THREE.MeshBasicMaterial({ color });
+
     const shape = new THREE.Mesh(geometry, material);
-    shape.position.x = (0);
-    shape.position.y = (0);
+    shape.position.set(
+        (Math.random() - 0.5) * 4,
+        (Math.random() - 0.5) * 4,
+        (Math.random() - 0.5) * 4
+    );
+
     scene.add(shape);
     objects.push(shape);
+    selectedObject = shape;
 }
 
-// Rig generation for low-poly person
+// Create Low Poly Person
 function createRiggedPerson() {
     const body = new THREE.Mesh(new THREE.BoxGeometry(0.5, 1, 0.25), new THREE.MeshStandardMaterial({ color: 0xffcc00 }));
     const head = new THREE.Mesh(new THREE.BoxGeometry(0.25, 0.25, 0.25), new THREE.MeshStandardMaterial({ color: 0xffcc00 }));
@@ -59,7 +67,6 @@ function createRiggedPerson() {
     const armL = new THREE.Mesh(new THREE.BoxGeometry(0.15, 0.5, 0.15), new THREE.MeshStandardMaterial({ color: 0xffcc00 }));
     const armR = armL.clone();
 
-    // Rig structure
     head.position.set(0, 0.75, 0);
     legL.position.set(-0.15, -0.75, 0);
     legR.position.set(0.15, -0.75, 0);
@@ -68,15 +75,49 @@ function createRiggedPerson() {
 
     const personGroup = new THREE.Group();
     personGroup.add(body, head, legL, legR, armL, armR);
+    personGroup.position.set(
+        (Math.random() - 0.5) * 4,
+        (Math.random() - 0.5) * 4,
+        (Math.random() - 0.5) * 4
+    );
 
-    personGroup.position.x = (Math.random() - 0.5) * 4;
-    personGroup.position.y = (Math.random() - 0.5) * 4;
+    personGroup.userData = {
+        type: 'rigged',
+        limbs: { head, legL, legR, armL, armR },
+    };
 
     scene.add(personGroup);
     objects.push(personGroup);
     selectedObject = personGroup;
 }
 
+// Handle Material Application (Group/Mesh)
+function applyMaterialToObject(obj, material) {
+    if (obj instanceof THREE.Group) {
+        obj.traverse(child => {
+            if (child.isMesh) child.material = material;
+        });
+    } else if (obj.isMesh) {
+        obj.material = material;
+    }
+}
+
+// Handle Lock Visuals
+function setLockedVisual(obj, locked) {
+    const apply = (mesh) => {
+        if (!mesh.material) return;
+        mesh.material.transparent = locked;
+        mesh.material.opacity = locked ? 0.5 : 1.0;
+    };
+
+    if (obj instanceof THREE.Group) {
+        obj.traverse(child => child.isMesh && apply(child));
+    } else {
+        apply(obj);
+    }
+}
+
+// UI Event Bindings
 document.getElementById('add-shape').addEventListener('click', () => {
     const shapeType = document.getElementById('shape-select').value;
     const color = document.getElementById('color-picker').value;
@@ -85,7 +126,7 @@ document.getElementById('add-shape').addEventListener('click', () => {
 
 document.getElementById('duplicate-shape').addEventListener('click', () => {
     if (selectedObject) {
-        const clone = selectedObject.clone();
+        const clone = selectedObject.clone(true);
         clone.position.x += 0.5;
         scene.add(clone);
         objects.push(clone);
@@ -95,8 +136,7 @@ document.getElementById('duplicate-shape').addEventListener('click', () => {
 document.getElementById('lock-shape').addEventListener('click', () => {
     if (selectedObject && !lockedObjects.has(selectedObject)) {
         lockedObjects.add(selectedObject);
-        selectedObject.material.transparent = true;
-        selectedObject.material.opacity = 0.5;
+        setLockedVisual(selectedObject, true);
     }
 });
 
@@ -113,8 +153,7 @@ document.getElementById('scale-range').addEventListener('input', (event) => {
 
 document.getElementById('rotate-range').addEventListener('input', (event) => {
     if (selectedObject && !isObjectLocked()) {
-        const rotateValue = event.target.value;
-        selectedObject.rotation.y = rotateValue;
+        selectedObject.rotation.y = event.target.value;
     }
 });
 
@@ -123,13 +162,11 @@ document.getElementById('translate-x').addEventListener('input', (event) => {
         selectedObject.position.x = event.target.value;
     }
 });
-
 document.getElementById('translate-y').addEventListener('input', (event) => {
     if (selectedObject && !isObjectLocked()) {
         selectedObject.position.y = event.target.value;
     }
 });
-
 document.getElementById('translate-z').addEventListener('input', (event) => {
     if (selectedObject && !isObjectLocked()) {
         selectedObject.position.z = event.target.value;
@@ -139,19 +176,22 @@ document.getElementById('translate-z').addEventListener('input', (event) => {
 document.getElementById('material-select').addEventListener('change', (event) => {
     if (selectedObject) {
         const materialType = event.target.value;
+        const color = selectedObject.material?.color ?? new THREE.Color(0xffffff);
         let newMaterial;
+
         switch (materialType) {
             case 'basic':
-                newMaterial = new THREE.MeshBasicMaterial({ color: selectedObject.material.color });
+                newMaterial = new THREE.MeshBasicMaterial({ color });
                 break;
             case 'phong':
-                newMaterial = new THREE.MeshPhongMaterial({ color: selectedObject.material.color });
+                newMaterial = new THREE.MeshPhongMaterial({ color });
                 break;
             case 'wireframe':
-                newMaterial = new THREE.MeshBasicMaterial({ color: selectedObject.material.color, wireframe: true });
+                newMaterial = new THREE.MeshBasicMaterial({ color, wireframe: true });
                 break;
         }
-        selectedObject.material = newMaterial;
+
+        applyMaterialToObject(selectedObject, newMaterial);
     }
 });
 
@@ -164,20 +204,25 @@ document.getElementById('delete-shape').addEventListener('click', () => {
     }
 });
 
+// Selection with Group Support
 function onMouseClick(event) {
     mouse.x = (event.clientX / window.innerWidth) * 2 - 1;
     mouse.y = -(event.clientY / window.innerHeight) * 2 + 1;
 
     raycaster.setFromCamera(mouse, camera);
-    const intersects = raycaster.intersectObjects(objects);
+    const intersects = raycaster.intersectObjects(objects, true);
 
     if (intersects.length > 0) {
         selectedObject = intersects[0].object;
+        while (selectedObject.parent && !(objects.includes(selectedObject))) {
+            selectedObject = selectedObject.parent;
+        }
         document.getElementById('transform-panel').style.display = 'block';
     }
 }
 window.addEventListener('click', onMouseClick);
 
+// Animation Loop
 function animate() {
     requestAnimationFrame(animate);
     controls.update();
@@ -185,6 +230,7 @@ function animate() {
 }
 animate();
 
+// Handle Resize
 window.addEventListener('resize', () => {
     camera.aspect = window.innerWidth / window.innerHeight;
     camera.updateProjectionMatrix();

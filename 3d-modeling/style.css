@@ -1,55 +1,41 @@
 body, html {
   margin: 0;
-  padding: 0;
   overflow: hidden;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background: #1a1a1a;
-  color: white;
+  height: 100%;
+  background-color: #1a1a1a;
 }
-
 #canvas-container {
   width: 100vw;
   height: 100vh;
-  display: block;
 }
-
-#ui-panel {
+nav {
   position: absolute;
-  top: 10px;
-  left: 10px;
-  background: rgba(30, 30, 30, 0.95);
-  padding: 12px;
-  border-radius: 8px;
-  z-index: 100;
-  max-width: 300px;
-  font-size: 14px;
+  top: 0;
+  left: 0;
+  padding: 10px;
+  background-color: rgba(0, 0, 0, 0.5);
 }
-
-.control-group {
-  margin-bottom: 12px;
-}
-
-label {
-  margin-right: 4px;
-}
-
-input[type="range"], input[type="number"], select {
-  width: 100%;
-  margin-top: 4px;
-  margin-bottom: 8px;
-}
-
-button {
-  background-color: #444;
+nav a {
   color: white;
-  border: none;
-  padding: 6px 10px;
-  margin: 4px 2px;
-  border-radius: 4px;
-  cursor: pointer;
-  font-weight: bold;
+  text-decoration: none;
+  margin: 0 10px;
 }
-
-button:hover {
-  background-color: #666;
+nav a:hover {
+  text-decoration: underline;
+}
+#control-panel {
+  position: absolute;
+  top: 50px;
+  left: 10px;
+  background-color: rgba(255, 255, 255, 0.8);
+  padding: 10px;
+  border-radius: 8px;
+  z-index: 1;
+}
+label, select, input {
+  display: block;
+  margin-bottom: 10px;
+}
+#transform-panel {
+  display: none;
 }

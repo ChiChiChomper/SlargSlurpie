@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Chill Chess</title>
+  <title>Chill Chess Game</title>
   <link rel="stylesheet" href="https://unpkg.com/@chrisoakman/chessboardjs@1.0.0/dist/chessboard-1.0.0.min.css">
   <style>
     body {
@@ -41,7 +41,8 @@
 
   <footer>Made with ♡ by ChatGPT</footer>
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/chess.js/0.13.4/chess.min.js"></script>
+  <!-- FIXED: Using UMD build of chess.js that works in the browser -->
+  <script src="https://cdn.jsdelivr.net/npm/chess.js@0.10.3/chess.min.js"></script>
   <script src="https://unpkg.com/@chrisoakman/chessboardjs@1.0.0/dist/chessboard-1.0.0.min.js"></script>
 
   <script>
@@ -75,7 +76,6 @@
 
     function updateStatus() {
       let status = '';
-
       let moveColor = game.turn() === 'w' ? 'White' : 'Black';
 
       if (game.in_checkmate()) {

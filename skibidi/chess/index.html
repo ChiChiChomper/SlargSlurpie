@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Weird Chess of Destiny</title>
+  <style>
+    body {
+      background: linear-gradient(45deg, #0f0, #f0f, #00f);
+      font-family: 'Comic Sans MS', cursive, sans-serif;
+      color: #fff;
+      text-align: center;
+      animation: vibe 5s infinite alternate;
+    }
+
+    @keyframes vibe {
+      0% { background-position: 0% 50%; }
+      100% { background-position: 100% 50%; }
+    }
+
+    #board {
+      display: grid;
+      grid-template-columns: repeat(8, 60px);
+      grid-template-rows: repeat(8, 60px);
+      margin: 50px auto;
+      border: 10px dashed hotpink;
+      box-shadow: 0 0 50px cyan;
+    }
+
+    .square {
+      width: 60px;
+      height: 60px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 30px;
+      transition: all 0.3s;
+      cursor: pointer;
+    }
+
+    .light { background-color: rgba(255, 255, 255, 0.1); }
+    .dark { background-color: rgba(0, 0, 0, 0.3); }
+
+    .square:hover {
+      transform: rotate(360deg);
+      background-color: limegreen;
+    }
+
+    .piece {
+      pointer-events: none;
+    }
+
+    button {
+      margin-top: 30px;
+      padding: 15px 30px;
+      font-size: 20px;
+      background: crimson;
+      border: none;
+      color: white;
+      box-shadow: 0 0 10px yellow;
+      animation: pulse 1s infinite;
+    }
+
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.2); }
+      100% { transform: scale(1); }
+    }
+  </style>
+</head>
+<body>
+
+  <h1>♟ Welcome to Weird Chess of Destiny ♞</h1>
+  <div id="board"></div>
+  <button onclick="doNothing()">DO NOT PRESS</button>
+
+  <audio id="moveSound">
+    <source src="https://www.soundjay.com/button/beep-07.wav" type="audio/wav">
+  </audio>
+
+  <script>
+    const pieces = {
+      'weirdoPawn': '🥒',
+      'creepyKnight': '🦄',
+      'funkyBishop': '🧀',
+      'spicyRook': '🌶️',
+      'chaosQueen': '👑',
+      'voidKing': '💀'
+    };
+
+    const board = document.getElementById('board');
+
+    function createBoard() {
+      for (let row = 0; row < 8; row++) {
+        for (let col = 0; col < 8; col++) {
+          const square = document.createElement('div');
+          square.classList.add('square');
+          square.classList.add((row + col) % 2 === 0 ? 'light' : 'dark');
+          if (Math.random() > 0.85) {
+            const piece = document.createElement('div');
+            piece.classList.add('piece');
+            const pieceTypes = Object.values(pieces);
+            piece.innerText = pieceTypes[Math.floor(Math.random() * pieceTypes.length)];
+            square.appendChild(piece);
+          }
+          square.addEventListener('click', () => {
+            document.getElementById('moveSound').play();
+            square.style.backgroundColor = '#' + Math.floor(Math.random()*16777215).toString(16);
+            square.innerHTML = '🌀';
+            setTimeout(() => square.innerHTML = '', 500);
+          });
+          board.appendChild(square);
+        }
+      }
+    }
+
+    function doNothing() {
+      alert("You were warned.");
+      document.body.style.backgroundColor = "black";
+      document.body.innerHTML = "<h1 style='color: red;'>Reality has been destabilized.</h1>";
+    }
+
+    createBoard();
+  </script>
+</body>
+</html>

@@ -8,92 +8,153 @@
         <link id="theme-link" rel="stylesheet" href="css/light-theme.css" />
         <link rel="apple-touch-icon" sizes="180x180" href="images/icon.png" />
         <style>
-            body {
-                font-family: Arial, sans-serif;
-                color: white;
-                background-color: #000;
-                margin: 0;
-                padding: 0;
-                overflow-x: hidden;
-            }
+            /* General body styling */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #f5f5f5;
+    background-color: #000;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    line-height: 1.6;
+}
 
-            header {
-                background: #333;
-                padding: 10px;
-                text-align: center;
-            }
+/* Header and navigation */
+header {
+    background: #1e1e1e;
+    padding: 16px 0;
+    text-align: center;
+    box-shadow: 0 2px 8px rgba(255, 255, 255, 0.05);
+}
 
-            header nav ul {
-                list-style: none;
-                padding: 0;
-                margin: 0;
-            }
+header nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
 
-            header nav ul li {
-                display: inline;
-                margin: 0 15px;
-            }
+header nav ul li {
+    display: inline-block;
+    margin: 0 20px;
+}
 
-            header nav ul li a {
-                color: #fff;
-                text-decoration: none;
-            }
+header nav ul li a {
+    color: #f0f0f0;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
 
-            main {
-                padding: 20px;
-                text-align: center;
-            }
+header nav ul li a:hover {
+    color: #00d8ff;
+}
 
-            .game-display {
-                width: 300px;
-                height: 200px;
-                margin: 20px auto;
-                position: relative;
-                display: inline-block;
-                border: 1px solid #ccc;
-                box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-                overflow: hidden;
-            }
+/* Main content area */
+main {
+    padding: 40px 20px;
+    text-align: center;
+}
 
-            .game-display img {
-                width: 100%;
-                height: auto;
-                display: block;
-            }
+/* Game preview display */
+.game-display {
+    width: 320px;
+    height: 200px;
+    margin: 20px auto;
+    position: relative;
+    display: inline-block;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.6);
+    transition: transform 0.3s ease;
+    background: #111;
+}
 
-            .game-display a {
-                position: absolute;
-                top: 0;
-                left: 0;
-                width: 100%;
-                height: 100%;
-                text-indent: -9999px; /* Hide text but keep the link clickable */
-            }
+.game-display:hover {
+    transform: scale(1.03);
+}
 
-            #games img {
-                width: 100px;
-                height: 100px;
-                margin: 10px;
-            }
+.game-display img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
 
-            #sigma-info {
-                margin: 20px 0;
-            }
+.game-display a {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    text-indent: -9999px;
+    z-index: 2;
+}
 
-            #sigma-info h2 {
-                font-size: 1.5em;
-            }
+/* Thumbnail grid */
+#games {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 16px;
+    margin-top: 30px;
+}
 
-            #sigma-info p {
-                font-size: 1.2em;
-            }
+#games img {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 8px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
 
-            #sigma-info .game-image {
-                width: 100%;
-                max-width: 600px;
-                height: auto;
-                margin-top: 10px;
-            }
+#games img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+}
+
+/* Sigma info section */
+#sigma-info {
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 20px;
+    text-align: center;
+    background: #111;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+}
+
+#sigma-info h2 {
+    font-size: 2em;
+    margin-bottom: 10px;
+}
+
+#sigma-info p {
+    font-size: 1.2em;
+    line-height: 1.7;
+    color: #ccc;
+}
+
+#sigma-info .game-image {
+    width: 100%;
+    max-width: 600px;
+    height: auto;
+    margin-top: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 12px rgba(255, 255, 255, 0.05);
+}
+
+/* Responsive tweaks */
+@media (max-width: 768px) {
+    .game-display {
+        width: 90%;
+        height: 180px;
+    }
+
+    header nav ul li {
+        display: block;
+        margin: 10px 0;
+    }
+}
         </style>
     </head>
     <body>

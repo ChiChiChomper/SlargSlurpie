@@ -2,98 +2,12 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Chill Chess Game</title>
-  <link rel="stylesheet" href="https://unpkg.com/@chrisoakman/chessboardjs@1.0.0/dist/chessboard-1.0.0.min.css">
-  <style>
-    body {
-      background: linear-gradient(to bottom right, #e0f7fa, #b2ebf2);
-      font-family: 'Segoe UI', sans-serif;
-      text-align: center;
-      padding: 20px;
-    }
-
-    h1 {
-      color: #00796b;
-    }
-
-    #board {
-      width: 400px;
-      margin: 20px auto;
-      box-shadow: 0 0 20px rgba(0,0,0,0.2);
-    }
-
-    #status {
-      font-size: 18px;
-      margin-top: 10px;
-    }
-
-    footer {
-      margin-top: 30px;
-      color: #555;
-    }
-  </style>
+  <title>Simple Chess</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
-  <h1>♟ Chill Chess Game ♞</h1>
-  <div id="board"></div>
-  <div id="status">Status: Ready to play</div>
-
-  <footer>Made with ♡ by ChatGPT</footer>
-
-  <!-- FIXED: Using UMD build of chess.js that works in the browser -->
-  <script src="https://cdn.jsdelivr.net/npm/chess.js@0.10.3/chess.min.js"></script>
-  <script src="https://unpkg.com/@chrisoakman/chessboardjs@1.0.0/dist/chessboard-1.0.0.min.js"></script>
-
-  <script>
-    const game = new Chess();
-
-    const board = Chessboard('board', {
-      draggable: true,
-      position: 'start',
-      onDragStart: (source, piece) => {
-        if (game.game_over() || 
-            (game.turn() === 'w' && piece.search(/^b/) !== -1) ||
-            (game.turn() === 'b' && piece.search(/^w/) !== -1)) {
-          return false;
-        }
-      },
-      onDrop: (source, target) => {
-        const move = game.move({
-          from: source,
-          to: target,
-          promotion: 'q' // auto promote to queen for simplicity
-        });
-
-        if (move === null) return 'snapback';
-
-        updateStatus();
-      },
-      onSnapEnd: () => {
-        board.position(game.fen());
-      }
-    });
-
-    function updateStatus() {
-      let status = '';
-      let moveColor = game.turn() === 'w' ? 'White' : 'Black';
-
-      if (game.in_checkmate()) {
-        status = `Game over, ${moveColor} is in checkmate.`;
-      } else if (game.in_draw()) {
-        status = 'Game over, it\'s a draw.';
-      } else {
-        status = `${moveColor} to move`;
-
-        if (game.in_check()) {
-          status += ` – ${moveColor} is in check!`;
-        }
-      }
-
-      document.getElementById('status').innerText = "Status: " + status;
-    }
-
-    updateStatus();
-  </script>
+  <h1>Chess Game</h1>
+  <div id="chessboard"></div>
+  <script src="script.js"></script>
 </body>
 </html>

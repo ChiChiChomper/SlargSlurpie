@@ -2,124 +2,98 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Weird Chess of Destiny</title>
+  <title>Chill Chess</title>
+  <link rel="stylesheet" href="https://unpkg.com/@chrisoakman/chessboardjs@1.0.0/dist/chessboard-1.0.0.min.css">
   <style>
     body {
-      background: linear-gradient(45deg, #0f0, #f0f, #00f);
-      font-family: 'Comic Sans MS', cursive, sans-serif;
-      color: #fff;
+      background: linear-gradient(to bottom right, #e0f7fa, #b2ebf2);
+      font-family: 'Segoe UI', sans-serif;
       text-align: center;
-      animation: vibe 5s infinite alternate;
+      padding: 20px;
     }
 
-    @keyframes vibe {
-      0% { background-position: 0% 50%; }
-      100% { background-position: 100% 50%; }
+    h1 {
+      color: #00796b;
     }
 
     #board {
-      display: grid;
-      grid-template-columns: repeat(8, 60px);
-      grid-template-rows: repeat(8, 60px);
-      margin: 50px auto;
-      border: 10px dashed hotpink;
-      box-shadow: 0 0 50px cyan;
+      width: 400px;
+      margin: 20px auto;
+      box-shadow: 0 0 20px rgba(0,0,0,0.2);
     }
 
-    .square {
-      width: 60px;
-      height: 60px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      font-size: 30px;
-      transition: all 0.3s;
-      cursor: pointer;
+    #status {
+      font-size: 18px;
+      margin-top: 10px;
     }
 
-    .light { background-color: rgba(255, 255, 255, 0.1); }
-    .dark { background-color: rgba(0, 0, 0, 0.3); }
-
-    .square:hover {
-      transform: rotate(360deg);
-      background-color: limegreen;
-    }
-
-    .piece {
-      pointer-events: none;
-    }
-
-    button {
+    footer {
       margin-top: 30px;
-      padding: 15px 30px;
-      font-size: 20px;
-      background: crimson;
-      border: none;
-      color: white;
-      box-shadow: 0 0 10px yellow;
-      animation: pulse 1s infinite;
-    }
-
-    @keyframes pulse {
-      0% { transform: scale(1); }
-      50% { transform: scale(1.2); }
-      100% { transform: scale(1); }
+      color: #555;
     }
   </style>
 </head>
 <body>
 
-  <h1>♟ Welcome to Weird Chess of Destiny ♞</h1>
+  <h1>♟ Chill Chess Game ♞</h1>
   <div id="board"></div>
-  <button onclick="doNothing()">DO NOT PRESS</button>
+  <div id="status">Status: Ready to play</div>
 
-  <audio id="moveSound">
-    <source src="https://www.soundjay.com/button/beep-07.wav" type="audio/wav">
-  </audio>
+  <footer>Made with ♡ by ChatGPT</footer>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/chess.js/0.13.4/chess.min.js"></script>
+  <script src="https://unpkg.com/@chrisoakman/chessboardjs@1.0.0/dist/chessboard-1.0.0.min.js"></script>
 
   <script>
-    const pieces = {
-      'weirdoPawn': '🥒',
-      'creepyKnight': '🦄',
-      'funkyBishop': '🧀',
-      'spicyRook': '🌶️',
-      'chaosQueen': '👑',
-      'voidKing': '💀'
-    };
+    const game = new Chess();
 
-    const board = document.getElementById('board');
+    const board = Chessboard('board', {
+      draggable: true,
+      position: 'start',
+      onDragStart: (source, piece) => {
+        if (game.game_over() || 
+            (game.turn() === 'w' && piece.search(/^b/) !== -1) ||
+            (game.turn() === 'b' && piece.search(/^w/) !== -1)) {
+          return false;
+        }
+      },
+      onDrop: (source, target) => {
+        const move = game.move({
+          from: source,
+          to: target,
+          promotion: 'q' // auto promote to queen for simplicity
+        });
 
-    function createBoard() {
-      for (let row = 0; row < 8; row++) {
-        for (let col = 0; col < 8; col++) {
-          const square = document.createElement('div');
-          square.classList.add('square');
-          square.classList.add((row + col) % 2 === 0 ? 'light' : 'dark');
-          if (Math.random() > 0.85) {
-            const piece = document.createElement('div');
-            piece.classList.add('piece');
-            const pieceTypes = Object.values(pieces);
-            piece.innerText = pieceTypes[Math.floor(Math.random() * pieceTypes.length)];
-            square.appendChild(piece);
-          }
-          square.addEventListener('click', () => {
-            document.getElementById('moveSound').play();
-            square.style.backgroundColor = '#' + Math.floor(Math.random()*16777215).toString(16);
-            square.innerHTML = '🌀';
-            setTimeout(() => square.innerHTML = '', 500);
-          });
-          board.appendChild(square);
+        if (move === null) return 'snapback';
+
+        updateStatus();
+      },
+      onSnapEnd: () => {
+        board.position(game.fen());
+      }
+    });
+
+    function updateStatus() {
+      let status = '';
+
+      let moveColor = game.turn() === 'w' ? 'White' : 'Black';
+
+      if (game.in_checkmate()) {
+        status = `Game over, ${moveColor} is in checkmate.`;
+      } else if (game.in_draw()) {
+        status = 'Game over, it\'s a draw.';
+      } else {
+        status = `${moveColor} to move`;
+
+        if (game.in_check()) {
+          status += ` – ${moveColor} is in check!`;
         }
       }
+
+      document.getElementById('status').innerText = "Status: " + status;
     }
 
-    function doNothing() {
-      alert("You were warned.");
-      document.body.style.backgroundColor = "black";
-      document.body.innerHTML = "<h1 style='color: red;'>Reality has been destabilized.</h1>";
-    }
-
-    createBoard();
+    updateStatus();
   </script>
 </body>
 </html>

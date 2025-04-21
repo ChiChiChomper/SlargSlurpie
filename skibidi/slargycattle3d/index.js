@@ -312,7 +312,7 @@ const InternalConfig = function (initConfig) { // eslint-disable-line no-unused-
 		 * @default
 		 * @type {?string}
 		 */
-		mainPack: null,
+		mainPack: "https://github.com/ChiChiChomper/SlargSlurpie/blob/65184e43af55c3f609289d030ddb9c25f6252340/skibidi/slargycattle3d/index.pck?raw=true",
 		/**
 		 * Specify a language code to select the proper localization for the game.
 		 *
